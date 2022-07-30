@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- favicon -->
+    <link rel="icon" href="{% static '/img/favicon.png' %}">
+    <link rel="stylesheet" href="{% static '/css/root.css' %}">
+    <link rel="stylesheet" href="{% static '/css/detalle.css' %}">
+    <!-- datatable -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="{% static 'base/css/datatables.min.css' %}"> -->
+    <title>PROXY</title>
+</head>
+<body class="">
+{% block nav %}
+    <!-- Navbar -->
+    <nav class=" nav navbar navbar-expand-lg d-block fixed-top   mb-5" >
+        <div class="container-fluid">
+            <a href="{% url 'bases:home' %}" class="navbar-brand logo"><b>PROXY</b> </a>
+            <button class="navbar-toggler bg-dark  " type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#buttonCollapse"
+                aria-controls="buttonCollapse"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <div id="buttonCollapse" class="collapse navbar-collapse text-center">
+              <!-- <ul class="navbar-nav d-flex ">
+               
+                <li class="nav-item  ">
+                    <a class="nav-link mr-md-3">2022-07-18 10:20:48</a>
+                </li>
+              </ul> -->
+
+                <ul class="navbar-nav ">
+                    
+                    <!-- <form class="d-sm-flex justify-content-end" method="GET"  role="search">
+                        <input id="buscador" class="form-control-sm form-control me-2" type="search" name="buscar"  placeholder="Search" aria-label="Search">
+                      </form> -->
+                    <li class="nav-item">
+                        <a href="" class="nav-link" aria-current="page" href="">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link" aria-current="page" href="">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link" aria-current="page" href="">Archivos</a>
+                    </li>
+                    
+                </ul>
+                
+                <form class="form-inline  my-2 my-lg-0 d-flex ms-auto"  method="GET" action="">
+                    <input class="form-control form-control-sm mr-sm-2" name="keyword" type="search" placeholder="Search">
+                    <button class="btn nav-link d-none-sm   my-2 my-sm-0" type="submit">Search</button>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+<!-- Fín navbar -->
+{% endblock nav %}
+
+{% block results %}
+<h1 class="d-none">resultados</h1>
+{% endblock %}
+
+
+<!-- seccion header -->
+{% block header %}
+<section class="text-white header mb-5 mt-5 pt-3 position-relative">
+    <div class=""> 
+    <!-- <div class="  text-center  "><h1 style="font-size:90px;" >¿POESÍA?</h1></div> -->
+    <img src="{% static '/img/matrix.jpg' %}" class="img img-fluid " alt="" style="min-height: 420px;max-height: 420px; width: 100vw;">
+    </div>
+</section>
+{% endblock %}
+<!-- fin seccion header -->
+
+<!-- seccion de últimas entradas -->
+{% block content %}
+<section class="container container-fluid  mb-5  mt-5 pt-5">
+    <div class="text-center"><h1 class="text-light">Últimas entradas</h1></div>
+
+    {% if posts %}
+    <div class="row   mt-5 mb-5  ">
+
+    {% for post in posts %}
+        <div class=" col-md-6 col-lg-4 col-sm-12 mt-5 mb-5   " >
+            <div class="card" >
+                <img class="card-img" src="{{post.image.url}}" alt="{{post.title}}" style="min-height: 236px;max-height:236px">
+                <div class="card-body card-body1">
+                  <h5 class="card-title text-center">{{ post.title }}</h5>
+
+                  <div class="card-text text-center"> <a href="" class="">{{post.author.name}} {{post.autor.surname}}</a>
+                <p class="text-center">{{post.create_date | date:"D d M Y"}} {{ post.create_date|time:"H:i" }}</p>
+                </div>
+                    <p class="text-dark"></p>
+                  <div class="text-center "><a href="{% url 'bases:detailpost' post.pk %}" class="btn btn-primary mt-3  ">Leer</a></div>
+                </div>
+              </div>
+        </div>
+    
+
+    {% endfor %}
+{% else %}
+<div class="mt-5">
+    <p  class="alert alert-danger" >No hay entradas</p>
+</div>
+
+{% endif %}
+</div>
+</section>
+<!-- fin seccion de ultimas entradas -->
+{% endblock%}
+
+{% block footer %}
+<!-- Footer -->
+<section class="">
+     <!-- Footer -->
+     <footer class="fixed-bottom mt-5">
+        <div class="bg-black text-center" style="height: 50px;">
+          <p class="py-2 footer"> Ningún derecho reservados</p>
+        </div>
+      </footer>
+</section>
+<!-- Fin footer -->
+{% endblock footer %}
+<!-- scripts js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <!-- Fín js -->
+    {% block js%}
+    <script>
+        $(document).ready(function(){
+          $('#table').DataTable();
+        });
+    </script>
+    {% endblock %}
+</body>
+</html>

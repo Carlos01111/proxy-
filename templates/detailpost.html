@@ -1,0 +1,31 @@
+{% extends 'index.html'%}
+{% load static %}
+
+{% block header %}
+<section class="text-white header mb-5 mt-5 pt-3 position-relative">
+    {% if posts %}
+    <div class=""> 
+    <!-- <div class="  text-center  "><h1 style="font-size:90px;" >¿POESÍA?</h1></div> -->
+    <img src="{{posts.image.url}}" class="img img-fluid " alt="{{posts.title}}" style="min-height: 420px;max-height: 420px; width: 100vw;">
+    </div>
+    {% endif %}
+</section>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5 pb-5">
+    {% if posts %}
+<div>
+    <h2 class="text-center text-light mb-3">{{posts.title}}</h2>
+    <span class="badge rounded-pill bg-primary mb-2">Categoria:{{posts.category}}</span></br>
+    <span class="badge rounded-pill bg-success mb-2">Subcategoria: {{posts.subcategory}}</span>
+</div>
+<div>
+
+</div>
+    {% endif %}
+</div>
+
+{% endblock %}
