@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 
 # Create your models here.
@@ -12,6 +13,7 @@ class ModelClass(models.Model):
 class Category(ModelClass):
     name = models.CharField(max_length=100, unique=True, help_text='name')
     description = models.CharField(max_length=300, help_text='description')
+    image = models.ImageField(upload_to='category')
 
     def __str__(self):
         return self.name
@@ -34,6 +36,7 @@ class Subcategory(ModelClass):
 
 class Author(ModelClass):
     name = models.CharField(max_length=100, help_text='name')
+    image = models.ImageField(upload_to='author')
     surname = models.CharField(max_length=100, help_text='surname')
     email = models.EmailField(help_text='email')
     phone = models.CharField(help_text='phone', max_length=100)

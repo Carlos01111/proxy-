@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block header %}
+<section class="text-white header mb-5 mt-5 pt-3 position-relative">
+    {% if category %}
+    <div class=""> 
+    <img src="{{category.image.url}}" class="img img-fluid " alt="{{category.name}}" style="min-height: 420px;max-height: 420px; width: 100vw;">
+    </div>
+    {% endif %}
+</section>
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5 pb-5">
+    {% if category %}
+<div>
+    <h2 class="text-center text-light mb-5">{{category.name}}</h2>
+    <p>{{category.description}}</p>
+</div>
+<div class="text-light  mb-5 ">
+
+    <div class="row  mt-5 mb-5  ">
+        {% for subc in  %}
+        <div class=" col-md-6 col-lg-4 col-sm-12 mt-5 mb-5  " >
+            <div class="card" >
+                <img class="card-img" src="{{subcategory.image.url}}" alt="{{subcategory.name}}" style="min-height: 236px;max-height:236px">
+                <div class="card-body card-body1">
+                  <h5 class="card-title text-center">{{ subcategory.name }}</h5>
+                  <!-- <div class="card-text text-center"> <a href="" class="">{{post.author.name}} {{post.autor.surname}}</a> -->
+                <p class="text-center">{{subcategory.create_date | date:"D d M Y"}} {{ subcategory.create_date|time:"H:i" }}</p>
+                </div>
+                    <p class="text-dark"></p>
+                  <div class="text-center "><a href="" class="btn text-success bg-dark mb-3">Leer</a></div>
+                </div>
+              </div>
+        {% endfor %}
+
+        </div>
+ 
+</div>
+    {% endif %}
+</div>
+
+{% endblock %}
+
