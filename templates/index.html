@@ -18,7 +18,8 @@
 <body class="">
 {% block nav %}
     <!-- Navbar -->
-    <nav class=" nav navbar navbar-expand-lg d-block fixed-top   mb-5" >
+    <div class="fixed-top position-sticky">
+    <nav class=" nav navbar navbar-expand-lg  mb-5" >
         <div class="container-fluid">
             <a href="{% url 'bases:home' %}" class="navbar-brand logo"><b>PROXY</b> </a>
             <button class="navbar-toggler bg-dark  " type="button"
@@ -54,14 +55,15 @@
                     
                 </ul>
                 
-                <form class="form-inline  my-2 my-lg-0 d-flex ms-auto"  method="GET" action="">
-                    <input class="form-control form-control-sm mr-sm-2" name="keyword" type="search" placeholder="Search">
-                    <button class="btn nav-link d-none-sm   my-2 my-sm-0" type="submit">Search</button>
+                <form class="form-inline d-sm-block  my-2  d-md-flex ms-auto"  method="GET" action="">
+                    <input class="form-control" name="keyword" type="search" placeholder="Search">
+                    <button class="btn nav-linkk  my-2 my-md-0  ml-sm-auto mr-sm-auto" type="submit">Search</button>
                 </form>
 
             </div>
         </div>
     </nav>
+</div>
 <!-- Fín navbar -->
 {% endblock nav %}
 

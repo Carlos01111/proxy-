@@ -59,6 +59,18 @@ body{
 }
 
 
+.nav-linkk{
+    color: #39FF14;
+    display: inline;
+}
+
+
+.nav-linkk:hover{
+    color: #006600;
+    
+}
+
+
 button{
     color: #006600;
     border-color: #006600;
