@@ -75,7 +75,7 @@ button{
     min-width: 100vw;
 }
 
-.background{
+/* .background{
     background: url(/media/categorias/hacking.jpg);
     image-rendering: auto;
     background-size: cover;
@@ -89,7 +89,7 @@ button{
     min-height: 80vh;
 
 
-}
+} */
 
 .con{
     padding-top: 20rem ;
@@ -99,13 +99,19 @@ button{
 
 .card{
     color: #39FF14;
-}
-.card-header{
+    .card-header{
     color: #39FF14;
+}
 }
 
 .bg-primary{
     background-color: #39FF14 !important;
     text-decoration-color: white;
     
+}
+
+
+.imagecontent{
+    margin-left: auto;
+    margin-right: auto;
 }

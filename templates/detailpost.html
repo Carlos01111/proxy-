@@ -10,25 +10,22 @@
     </div>
     {% endif %}
 </section>
-
 {% endblock %}
-
 {% block content %}
-
 <div class="container mt-5 mb-5 pb-5">
     {% if posts %}
 <div>
-    <h2 class="text-center text-light mb-3">{{posts.title}}</h2>
+    <h2 class="text-center text-light mb-5">{{posts.title}}</h2>
     <span class="badge rounded-pill bg-primary mb-2">Categoria:{{posts.category}}</span></br>
     <span class="badge rounded-pill bg-success mb-2">Subcategoria: {{posts.subcategory}}</span>
 </div>
-<div class="text-light mt-5 mb-5 ">
-    {% for content in contents %}
-    <h3>{{content.subtitle}}</h3>
-    <p class="justify-content">{{content.content}}</p>
-    <div style="margin-right: auto; margin-left:auto">
+<div class="text-light  mb-5 ">
+    {% for content in posts.postcontent_set.all %}
 
-        <img src="{{content.imagecontent.url}}" alt="" class="img img-fluid" style="margin-left: auto; margin-right:auto">
+    <h3 class="mt-5">{{content.subtitle}}</h3>
+    <p class="justify-content">{{content.content}}</p>
+    <div class="d-flex">
+        <img src="{{content.imagecontent.url}}" alt="" class="img img-fluid imagecontent">
     </div>
     {% endfor %}
 </div>
