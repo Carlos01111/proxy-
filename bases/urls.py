@@ -5,5 +5,5 @@ urlpatterns=[
     path('post/<int:pk>/', views.DetailPostView.as_view(), name='detailpost'),
     path('categories/', views.CategoriesView.as_view(), name='categories'),
     path('category/<int:pk>/', views.CategoryView.as_view(), name='category'),
-    
+    path('subcategory/<int:pk>/', views.SubcategoryView.as_view(), name='subcategory'),
 ]

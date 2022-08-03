@@ -30,7 +30,7 @@ class CategoriesView(ListView):
     
     
 class CategoryView(TemplateView):
-    template_name = 'categorydetail.html'
+    template_name = 'category.html'
     
     def get_context_data(self,**kwargs):
         context=  super().get_context_data(**kwargs)
@@ -39,4 +39,16 @@ class CategoryView(TemplateView):
         # context['subcategories'] = Subcategory.objects.filter(pk=category_id)
         return context
         
+
+class SubcategoryView(TemplateView):
+    # template_name = 'subcategory.html'
+    # model = Subcategory
+    # context_object_name = 'subcategory' 
+    template_name = 'subcategory.html'
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        subcategory_id = self.kwargs['pk']
+        context['subcategory'] = Subcategory.objects.get(id=subcategory_id)
+        
+        return context

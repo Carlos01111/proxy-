@@ -25,6 +25,7 @@ class Category(ModelClass):
 class Subcategory(ModelClass):
     name = models.CharField(max_length=100, help_text='name')
     description = models.CharField(max_length=300, help_text='description')
+    image = models.ImageField(upload_to='subcategory', null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     
     def __str__(self):
