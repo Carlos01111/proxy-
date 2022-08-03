@@ -1,8 +1,9 @@
 from multiprocessing import context
 from typing import List
+from unicodedata import category
 from django.shortcuts import render
 #vistas genericas
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 
 #models
 from bases.models import Category, Post, Subcategory
@@ -28,12 +29,14 @@ class CategoriesView(ListView):
     
     
     
-class CategoryView(DetailView):
+class CategoryView(TemplateView):
     template_name = 'categorydetail.html'
-    model = Category
-    context_object_name = 'category' 
     
-   
-        
+    def get_context_data(self,**kwargs):
+        context=  super().get_context_data(**kwargs)
+        category_id = self.kwargs['pk']
+        context['category'] = Category.objects.get(id=category_id)
+        # context['subcategories'] = Subcategory.objects.filter(pk=category_id)
+        return context
         
     
