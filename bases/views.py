@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, TemplateView
 
 #models
-from bases.models import Category, Post, Subcategory
+from bases.models import Author, Category, Post, Subcategory
 # Create your views here.
 
 class HomeView(ListView):
@@ -41,14 +41,20 @@ class CategoryView(TemplateView):
         
 
 class SubcategoryView(TemplateView):
-    # template_name = 'subcategory.html'
-    # model = Subcategory
-    # context_object_name = 'subcategory' 
+    
     template_name = 'subcategory.html'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         subcategory_id = self.kwargs['pk']
         context['subcategory'] = Subcategory.objects.get(id=subcategory_id)
-        
         return context
+    
+class ContactView(TemplateView):
+    template_name = 'contact.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        author = Author.objects.all()
+        context['author'] = author
+        return context
+    

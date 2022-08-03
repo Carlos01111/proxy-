@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% block header %}{% endblock %}
+{% block content %}
+<div class="container container-fluid">
+<!-- Autor -->
+<section>
+    {% for  auth in author %}
+    <div class="d-flex autor" >
+        <img src="{{ auth.image.url }}" class="container-img img-fluid rounded-circle" alt="{{author.name}}{{author.surname}}">
+    </div>
+ 
+
+    <div class="">
+        <!-- Titúlo poema -->
+        <div class="text-center mt-3 mb-3"><h3 class="logo">{{ auth.name }} {{ auth.surname}}</h3></div>
+        <!-- Contenido poema -->
+        <div class="d-block">
+            <div class="row text-center text-white mb-5">
+                <div class="col-sm-12 ">
+                    {{auth.description}}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+  <!-- Fín autor -->
+</section>
+</div>
+
+{% endblock %}

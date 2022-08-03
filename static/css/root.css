@@ -127,3 +127,19 @@ button{
     margin-left: auto;
     margin-right: auto;
 }
+
+
+/* contact */
+
+section .autor{
+    margin-top:3rem;
+}
+
+.container-img{
+    max-width: 150px;
+    min-width: 150px;
+    max-height: 150px;
+    min-height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
