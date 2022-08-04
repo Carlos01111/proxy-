@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, TemplateView
 
 #models
-from bases.models import Author, Category, Post, Subcategory
+from bases.models import Author, Category, Post, Subcategory, File
 # Create your views here.
 
 class HomeView(ListView):
@@ -26,9 +26,7 @@ class CategoriesView(ListView):
     template_name = 'categories.html'
     model = Category
     context_object_name= 'categories'
-    
-    
-    
+        
 class CategoryView(TemplateView):
     template_name = 'category.html'
     
@@ -57,4 +55,22 @@ class ContactView(TemplateView):
         author = Author.objects.all()
         context['author'] = author
         return context
+
+
+class FilesView(ListView):
+    template_name='files.html'
+    model= File
+    context_object_name='files'
+    ordering=('create_date',)    
     
+
+class SearchView(TemplateView):
+    template_name='search.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        kw = self.request.GET.get('keyword')
+        results = Post.objects.filter(title__icontains=kw)
+        print(results)
+        context['results']=results
+        return context

@@ -54,13 +54,13 @@
                         <a  class="nav-link" aria-current="page" href="{% url 'bases:contact' %}">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link" aria-current="page">Archivos</a>
+                        <a href="{% url 'bases:files' %}" class="nav-link" aria-current="page">Archivos</a>
                     </li>
                     
                 </ul>
                 
-                <form class="form-inline d-sm-block  my-2  d-md-flex ms-auto"  method="GET" action="">
-                    <input class="form-control" name="keyword" type="search" placeholder="Search">
+                <form class="form-inline d-sm-block  my-2  d-md-flex ms-auto"  method="GET" action="{% url 'bases:search' %}">
+                    <input class="form-control" name="keyword" type="search" placeholder="Search" required>
                     <button class="btn nav-linkk  my-2 my-md-0  ml-sm-auto mr-sm-auto" type="submit">Search</button>
                 </form>
 
@@ -81,7 +81,7 @@
 <section class="text-white header mb-5 mt-5 pt-3 position-relative">
     <div class=""> 
     <!-- <div class="  text-center  "><h1 style="font-size:90px;" >¿POESÍA?</h1></div> -->
-    <img src="{% static '/img/matrix.jpg' %}" class="img img-fluid " alt="" style="min-height: 420px;max-height: 420px; width: 100vw;">
+    <img src="{% static '/img/banner.webp' %}" class="img img-fluid " alt="" style="min-height: 420px;max-height: 420px; width: 100vw;">
     </div>
 </section>
 {% endblock %}

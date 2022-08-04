@@ -82,3 +82,20 @@ class PostContent(ModelClass):
     class Meta:
         verbose_name='content'
         verbose_name_plural = 'contents'
+
+
+    
+class File(ModelClass):
+    title = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    publicacion = models.DateField('Fecha de publicación')
+    archivo = models.FileField(upload_to='archivos')
+    
+    def __str__(self):
+        return '{}'.format(self.title)
+    
+    class Meta:
+        verbose_name = 'file'
+        verbose_name_plural='files'
+        
+        

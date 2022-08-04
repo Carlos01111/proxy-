@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block header %}
+{% endblock %}
+{% block content %}
+<div class="container mt-5 pt-5 mb-5 pb-3 ">
+    {% if not files %}
+    <div class="alert alert-danger text center">No hay archivos</div>
+    {% else %}
+    <div class="row text-white pt-5">
+        <div class="table-responsive" >
+            <table class=" col-12 table-striped  mb-5 table-dark table table-responsive-sm" id="table" >
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titulo</th>
+                        <th>Autor</th>
+                        <th>Archivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in files %}
+                    <tr>
+                        <td>{{item.id}}</td>
+                        <td>{{item.title}}</td>
+                        <td>{{item.author}}</td>
+                        <td><a href="{{item.file.url}}" class="text-decoration-none text-white">{{item.title}}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

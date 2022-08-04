@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block header %}
+{% endblock %}
+{% block content %}
+<section class=" mt-4">
+    <div class="container container-fluid">
+      <h1 class="text-light text-center mb-3 " style="font-family: 'Bangers', cursive;
+      ">Busqueda</h1>
+      <div class="row ">
+        <h1 class="text-light">{{request.GET.keyword}}</h1>
+    
+        {% for result in results %}
+
+        <div class="col-md-6 col-lg-4 mb-5">
+          <div class="card" style="width: 18rem; min-height: 345px;">
+            
+            <img src="{{result.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{result.title}}</h5>
+              <p class="card-text text-center">{{results.description}}</p>
+              <div class="text-center"><a href="{% url 'bases:detailpost' result.pk %}" class="btn btn-primary">Ver mas</a></div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+            <!-- <div class="pb-3">
+          <p class="alert alert-danger d-block">No hay ventas activas</p>
+        </div> -->
+    
+      </div>
+
+    </div>
+  </section>
+{% endblock %}
