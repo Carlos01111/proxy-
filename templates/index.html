@@ -96,7 +96,7 @@
     <div class="row   mt-5 mb-5  ">
 
     {% for post in posts %}
-        <div class=" col-md-6 col-lg-4 col-sm-12 mt-5 mb-5  " >
+        <div class=" col-md-6 col-lg-4 col-sm-12  mb-5  " >
             <div class="card" >
                 <img class="card-img" src="{{post.image.url}}" alt="{{post.title}}" style="min-height: 236px;max-height:236px">
                 <div class="card-body card-body1">
@@ -113,10 +113,7 @@
                 </div>
                   <div class="text-center "><a href="{% url 'bases:detailpost' post.pk %}" class="btn btn-primary  mb-1">Leer</a></div>
                 </div>
-              </div>
-        </div>
-    
-
+            </div>
     {% endfor %}
     {% else %}
 <div class="mt-5 mb-5">
@@ -124,7 +121,7 @@
 </div>
 
     {% endif %}
-
+</div>
 </section>
 <!-- fin seccion de ultimas entradas -->
 {% endblock%}
