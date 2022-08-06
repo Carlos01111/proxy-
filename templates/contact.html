@@ -4,6 +4,7 @@
 <div class="container container-fluid">
 <!-- Autor -->
 <section>
+    {% if author %}
     {% for  auth in author %}
     <div class="d-flex autor" >
         <img src="{{ auth.image.url }}" class="container-img img-fluid rounded-circle" alt="{{author.name}}{{author.surname}}">
@@ -22,6 +23,11 @@
             </div>
         </div>
         {% endfor %}
+        {% else %}
+        <div class="mt-5 mb-5">
+            <p  class="alert alert-danger mb-5" >No hay contacto</p>
+        </div>
+        {% endif %}
   <!-- Fín autor -->
 </section>
 </div>

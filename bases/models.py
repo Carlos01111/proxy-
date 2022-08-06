@@ -1,6 +1,6 @@
 from distutils.command.upload import upload
 from django.db import models
-
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 class ModelClass(models.Model):
@@ -60,7 +60,7 @@ class Post(ModelClass):
     image = models.ImageField(upload_to='posts')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
-    
+    content = RichTextUploadingField( blank=True, null=True)
     
     def __str__(self):
         return self.title
@@ -69,19 +69,19 @@ class Post(ModelClass):
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
 
-class PostContent(ModelClass):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    subtitle =  models.CharField(max_length=100, help_text='subtitle')
-    step = models.IntegerField(blank=True, null=True)
-    imagecontent = models.ImageField(upload_to='posts/imagecontent/')
-    content = models.TextField(help_text='content')
+# class PostContent(ModelClass):
+#     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+#     subtitle =  models.CharField(max_length=100, help_text='subtitle')
+#     step = models.IntegerField(blank=True, null=True)
+#     imagecontent = models.ImageField(upload_to='posts/imagecontent/')
+#     content = models.TextField(help_text='content')
 
-    def __str__(self):
-        return self.subtitle
+#     def __str__(self):
+#         return self.subtitle
 
-    class Meta:
-        verbose_name='content'
-        verbose_name_plural = 'contents'
+#     class Meta:
+#         verbose_name='content'
+#         verbose_name_plural = 'contents'
 
 
     

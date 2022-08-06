@@ -1,0 +1,152 @@
+
+*{
+    font-family: 'Inconsolata', monospace;
+}
+
+:root{
+    background-color: black;
+    
+}
+
+body{
+    background: black;
+}
+
+.logo{
+    justify-content: right;
+    color: transparent;
+    -webkit-background-clip: text;
+    animation: animation 2s infinite;
+    font-family: 'Inconsolata', monospace;
+
+
+}
+
+@keyframes animation {
+    0%{
+        background-color: #39FF14;
+    }
+    50%{
+        background-color: blue;
+    }
+    100%{
+        background-color: aqua;
+    }
+}
+
+.text-color{
+    color:  #39FF14;
+    background: black;
+}
+
+.dropdown-menu{
+    background: black;
+}
+
+.dropdown-item{
+    color: #39FF14;
+    background: black;
+    
+}
+.nav-link{
+    color: #39FF14;
+}
+
+
+.nav-link:hover{
+    color: #006600;
+    
+}
+
+
+.nav-linkk{
+    color: #39FF14;
+    display: inline;
+}
+
+
+.nav-linkk:hover{
+    color: #006600;
+    
+}
+
+
+button{
+    color: #006600;
+    border-color: #006600;
+}
+.navbar-toggler-icon:focus{
+   color: #006600;
+    
+}
+
+
+.carousel img{
+    min-height: 80vh;
+    max-height: 80vh;
+    min-width: 100vw;
+}
+
+/* .background{
+    background: url(/media/categorias/hacking.jpg);
+    image-rendering: auto;
+    background-size: cover;
+    min-height: 80vh;
+    max-width: 100vw;
+}
+
+.background-overlay{
+    background: rgba(138,221,45,0.3) ;
+    min-width: 100vw;
+    min-height: 80vh;
+
+
+} */
+
+.con{
+    padding-top: 20rem ;
+    padding-left: 2rem;
+    
+}  
+
+.card{
+    color: #39FF14;
+    .card-header{
+    color: #39FF14;
+}
+}
+
+.bg-primary{
+    background-color: #39FF14 !important;
+    text-decoration-color: white;
+    
+}
+
+
+.imagecontent{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* contact */
+
+section .autor{
+    margin-top:3rem;
+}
+
+.container-img{
+    max-width: 150px;
+    min-width: 150px;
+    max-height: 150px;
+    min-height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-content{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+
+}

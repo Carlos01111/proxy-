@@ -118,20 +118,20 @@
     
 
     {% endfor %}
-{% else %}
-<div class="mt-5">
-    <p  class="alert alert-danger" >No hay entradas</p>
+    {% else %}
+<div class="mt-5 mb-5">
+    <p  class="alert alert-danger mb-5" >No hay entradas</p>
 </div>
 
-{% endif %}
-</div>
+    {% endif %}
+
 </section>
 <!-- fin seccion de ultimas entradas -->
 {% endblock%}
 
 {% block footer %}
 <!-- Footer -->
-<section class="">
+<section class="mt-5">
      <!-- Footer -->
      <footer class="fixed-bottom mt-5">
         <div class="bg-black text-center" style="height: 50px;">

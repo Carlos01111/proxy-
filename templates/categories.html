@@ -16,7 +16,6 @@
                   <!-- <div class="card-text text-center"> <a href="" class="">{{post.author.name}} {{post.autor.surname}}</a> -->
                 <p class="text-center">{{category.create_date | date:"D d M Y"}} {{ category.create_date|time:"H:i" }}</p>
                 </div>
-                    <p class="text-dark"></p>
                   <div class="text-center "><a href="{% url 'bases:category' category.pk %}" class="btn text-success bg-dark mb-3">Leer</a></div>
                 </div>
               </div>
@@ -24,7 +23,7 @@
 
         </div>
 {% else %}
-<h1 class="alert alert-success">No hay categorías disponibles</h1>
+<div class="alert alert-danger">No hay categorías disponibles</div>
 {% endif %}
 
 
