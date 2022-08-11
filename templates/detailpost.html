@@ -21,6 +21,8 @@
      </span></br>
     <span class="badge rounded-pill bg-success mb-2">Subcategoria: {{posts.subcategory}}</span>
     <p class="text-light" style="font-family: #ffff;">{{posts.content|safe}}</p>
+    <iframe width="560"  class="d-flex img img-fluid" style="margin-left: auto; margin-right:auto;min-height:515px" src="{{posts.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 </div>
 <div class="text-light  mb-5 ">
     {% for content in posts.postcontent_set.all %}

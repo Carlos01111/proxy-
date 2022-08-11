@@ -61,6 +61,7 @@ class Post(ModelClass):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
     content = RichTextUploadingField( blank=True, null=True)
+    video = models.CharField(max_lenght=100)
     
     def __str__(self):
         return self.title
